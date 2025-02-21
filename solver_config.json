@@ -1,0 +1,37 @@
+{
+    "entry_point": "sa_qubo_optimizer:SAQUBOOptimizer",
+    "default_params": {
+      "time_limit": 300,
+      "num_iterations": 10000,
+      "initial_temperature": 10.0,
+      "cooling_rate": 0.999
+    },
+    "optimizer_type": "QUBO",
+    "description": "QUBO optimizer that uses simulated annealing to solve a QUBO problem.",
+    "compatible_problems": [
+      "Traveling Salesman Problem"
+    ],
+    "parameters": {
+      "time_limit": {
+        "type": "int",
+        "description": "Maximum allowed time for optimization (in seconds)."
+      },
+      "num_iterations": {
+        "type": "int",
+        "description": "Number of iterations to perform in the simulated annealing solver."
+      },
+      "initial_temperature": {
+        "type": "float",
+        "description": "Starting temperature for the simulated annealing process."
+      },
+      "cooling_rate": {
+        "type": "float",
+        "description": "Multiplicative cooling factor applied at each iteration (e.g., 0.999)."
+      }
+    },
+    "requirements": [
+      "numpy",
+      "qubots"
+    ]
+  }
+  
