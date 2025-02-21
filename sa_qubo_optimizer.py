@@ -25,7 +25,10 @@ class SAQUBOOptimizer(BaseOptimizer):
 
         # --- Solve the QUBO using simulated annealing ---
         # Initialize with a random binary vector of length m.
-        x = np.random.randint(0, 2, size=m)
+        if initial_solution is None:
+            x = np.random.randint(0, 2, size=m)
+        else:
+            x = initial_solution
         current_cost = self.qubo_cost(x, Q)
         best_x = x.copy()
         best_cost = current_cost
