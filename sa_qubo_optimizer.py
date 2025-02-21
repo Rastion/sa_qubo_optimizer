@@ -29,7 +29,6 @@ class SAQUBOOptimizer(BaseOptimizer):
             x = np.random.randint(0, 2, size=m)
         else:
             x = np.array(initial_solution)
-        print(x)
         current_cost = self.qubo_cost(x, Q)
         best_x = x.copy()
         best_cost = current_cost
@@ -41,7 +40,7 @@ class SAQUBOOptimizer(BaseOptimizer):
             x_new = x.copy()
             x_new[p] = 1 - x_new[p]
             new_cost = self.qubo_cost(x_new, Q)
-            print("Cost= "+str(new_cost))
+            print("Cost= "+str(new_cost)+", iteration: "+str(it))
             delta = new_cost - current_cost
             if delta < 0 or random.random() < math.exp(-delta / T):
                 x = x_new
