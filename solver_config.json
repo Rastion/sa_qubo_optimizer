@@ -4,7 +4,8 @@
       "time_limit": 300,
       "num_iterations": 10000,
       "initial_temperature": 10.0,
-      "cooling_rate": 0.999
+      "cooling_rate": 0.999,
+      "verbose": false
     },
     "optimizer_type": "QUBO",
     "description": "QUBO optimizer that uses simulated annealing to solve a QUBO problem.",
@@ -27,6 +28,10 @@
       "cooling_rate": {
         "type": "float",
         "description": "Multiplicative cooling factor applied at each iteration (e.g., 0.999)."
+      },
+      "verbose": {
+        "type": "bool",
+        "description": "If true the optimizer will print the cost found per iteration in the terminal."
       }
     },
     "requirements": [

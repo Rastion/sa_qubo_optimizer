@@ -8,11 +8,12 @@ class SAQUBOOptimizer(BaseOptimizer):
 
     """
 
-    def __init__(self, time_limit=300, num_iterations=10000, initial_temperature=10.0, cooling_rate=0.999):
+    def __init__(self, time_limit=300, num_iterations=10000, initial_temperature=10.0, cooling_rate=0.999, verbose=False):
         self.time_limit = time_limit
         self.num_iterations = num_iterations
         self.initial_temperature = initial_temperature
         self.cooling_rate = cooling_rate
+        self.verbose = verbose
 
     def optimize(self, problem, initial_solution=None, **kwargs):
 
@@ -40,7 +41,8 @@ class SAQUBOOptimizer(BaseOptimizer):
             x_new = x.copy()
             x_new[p] = 1 - x_new[p]
             new_cost = self.qubo_cost(x_new, Q)
-            #print("Cost= "+str(new_cost)+", iteration: "+str(it))
+            if self.verbose:
+                print("Cost= "+str(new_cost)+", iteration: "+str(it))
             delta = new_cost - current_cost
             if delta < 0 or random.random() < math.exp(-delta / T):
                 x = x_new
