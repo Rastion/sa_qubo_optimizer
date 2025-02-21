@@ -29,6 +29,7 @@ class SAQUBOOptimizer(BaseOptimizer):
             x = np.random.randint(0, 2, size=m)
         else:
             x = initial_solution
+        print(x)
         current_cost = self.qubo_cost(x, Q)
         best_x = x.copy()
         best_cost = current_cost
