@@ -23,7 +23,7 @@ class SAQUBOOptimizer(BaseOptimizer):
         # Get the number of variables from the QUBO matrix
         max_index = max(max(i, j) for i, j in Q.keys())
         m = max_index + 1  # Since indices are 0-based
-
+        print(f"Number of classical variables : {m}")
         # --- Solve the QUBO using simulated annealing ---
         # Initialize with a random binary vector of length m.
         if initial_solution is None:
