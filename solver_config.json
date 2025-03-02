@@ -7,10 +7,12 @@
       "cooling_rate": 0.999,
       "verbose": false
     },
-    "optimizer_type": "QUBO",
+    "creator": "Rastion",
+    "type": "optimizer",
+    "optimizer_name": "Simulated annealing QUBO optimizer",
     "description": "QUBO optimizer that uses simulated annealing to solve a QUBO problem.",
     "compatible_problems": [
-      "Traveling Salesman Problem"
+      "QUBO"
     ],
     "parameters": {
       "time_limit": {
@@ -37,6 +39,10 @@
     "requirements": [
       "numpy",
       "qubots"
+    ],
+    "keywords": [
+      "QUBO",
+      "heuristic"
     ]
   }
   
